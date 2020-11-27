@@ -10,9 +10,4 @@ public class LoginController {
     public String showAccess() {
         return "login-forms/access-denied";
     }
-
-    @RequestMapping("/**")
-    public String redirectToHomepage() {
-        return "index";
-    }
 }

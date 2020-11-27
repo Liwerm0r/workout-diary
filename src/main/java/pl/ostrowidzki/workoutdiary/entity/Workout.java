@@ -2,8 +2,8 @@ package pl.ostrowidzki.workoutdiary.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Workout {
@@ -22,13 +22,13 @@ public class Workout {
             joinColumns = { @JoinColumn(name = "workout_id")},
             inverseJoinColumns = { @JoinColumn(name = "exercise_id")}
     )
-    private Set<Exercise> exercises = new HashSet<>();
+    private List<Exercise> exercises = new ArrayList<>();
 
     public Workout() {
 
     }
 
-    public Workout(LocalDate dateOfWorkout, Set<Exercise> exercises) {
+    public Workout(LocalDate dateOfWorkout, List<Exercise> exercises) {
         this.dateOfWorkout = dateOfWorkout;
         this.exercises = exercises;
     }
@@ -49,11 +49,11 @@ public class Workout {
         this.dateOfWorkout = dateOfWorkout;
     }
 
-    public Set<Exercise> getExercises() {
+    public List<Exercise> getExercises() {
         return exercises;
     }
 
-    public void setExercises(Set<Exercise> exercises) {
+    public void setExercises(ArrayList<Exercise> exercises) {
         this.exercises = exercises;
     }
 }

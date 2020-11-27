@@ -1,8 +1,8 @@
 package pl.ostrowidzki.workoutdiary.entity;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Exercise {
@@ -16,9 +16,9 @@ public class Exercise {
     private Integer numberOfReps;
 
     @ManyToMany(mappedBy = "exercises")
-    private Set<Workout> workouts = new HashSet<>();
+    private List<Workout> workouts = new ArrayList<>();
 
-    public Exercise(Double weight, String description, Integer numberOfSets, Integer numberOfReps, Set<Workout> workouts) {
+    public Exercise(Double weight, String description, Integer numberOfSets, Integer numberOfReps, List<Workout> workouts) {
         this.weight = weight;
         this.description = description;
         this.numberOfSets = numberOfSets;
@@ -69,11 +69,11 @@ public class Exercise {
         this.numberOfReps = numberOfReps;
     }
 
-    public Set<Workout> getWorkouts() {
+    public List<Workout> getWorkouts() {
         return workouts;
     }
 
-    public void setWorkouts(Set<Workout> workouts) {
+    public void setWorkouts(List<Workout> workouts) {
         this.workouts = workouts;
     }
 }
